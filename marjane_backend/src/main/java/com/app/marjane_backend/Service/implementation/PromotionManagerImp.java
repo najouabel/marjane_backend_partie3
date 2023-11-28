@@ -2,11 +2,12 @@ package com.app.marjane_backend.Service.implementation;
 
 import com.app.marjane_backend.Service.Observable;
 import com.app.marjane_backend.Service.Observer;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class ObservableImpl implements Observable {
+@Component
+public class PromotionManagerImp implements Observable {
     private int state = 0;
 
     private List<Observer> observers=new ArrayList<>();

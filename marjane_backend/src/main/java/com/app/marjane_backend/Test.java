@@ -2,7 +2,7 @@ package com.app.marjane_backend;
 
 
 import com.app.marjane_backend.Service.Observer;
-import com.app.marjane_backend.Service.implementation.ObservableImpl;
+import com.app.marjane_backend.Service.implementation.PromotionManagerImp;
 import com.app.marjane_backend.Service.implementation.ObserverImpl1;
 import com.app.marjane_backend.Service.implementation.ObserverImpl2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Test {
     public static void main(String[] args) {
 
-        ObservableImpl observable = new ObservableImpl();
+        PromotionManagerImp observable = new PromotionManagerImp();
         observable.setState(90);
         observable.setState(30);
         Observer observer1 = new ObserverImpl1();

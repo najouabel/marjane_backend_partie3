@@ -1,6 +1,7 @@
 package com.app.marjane_backend.web;
 
 
+import com.app.marjane_backend.Service.implementation.PromotionManagerImp;
 import com.app.marjane_backend.Service.implementation.PromotionProductServiceImp;
 import com.app.marjane_backend.entities.PromotionProduct;
 import lombok.AllArgsConstructor;
@@ -11,17 +12,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/promotion")
+@RequestMapping("/promotion")
 
 @AllArgsConstructor
 public class PromotionProductController {
     private final PromotionProductServiceImp service;
-
+    private final PromotionManagerImp observabl;
+    private  final  CategorieAdminController adminController;
 
     @PostMapping
     public ResponseEntity<String> createProductPromotion(@RequestBody PromotionProduct promotionProduct) {
+
         PromotionProduct createdPromotionProduct = service.create(promotionProduct);
         if (createdPromotionProduct != null) {
+
+            observabl.subscribe(adminController);
+            observabl.notifyObservers();
+
             return new ResponseEntity<>("Success creating product promotion", HttpStatus.CREATED);
         }
         return new ResponseEntity<>("Something went wrong when creating product promotion", HttpStatus.INTERNAL_SERVER_ERROR);

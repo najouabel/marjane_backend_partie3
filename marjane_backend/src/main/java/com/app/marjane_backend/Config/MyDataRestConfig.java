@@ -1,4 +1,4 @@
-package com.app.marjane_backend.Config;
+/*package com.app.marjane_backend.Config;
 
 import com.app.marjane_backend.entities.Product;
 import com.app.marjane_backend.entities.PromotionCategory;
@@ -20,6 +20,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 .withCollectionExposure(((metdata, httpMethods) -> httpMethods.disable(unsupporyedActions)));
 
 
+
         //Disable Http methods for ProductCategory
         config.getExposureConfiguration()
                 .forDomainType(PromotionCategory.class)
@@ -27,4 +28,6 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 .withCollectionExposure(((metdata, httpMethods) -> httpMethods.disable(unsupporyedActions)));
 
     }
-}
+
+
+}*/
